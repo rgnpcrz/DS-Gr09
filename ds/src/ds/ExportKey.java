@@ -3,7 +3,7 @@ import java.io.*;
 public class ExportKey {
     static public void ExportKeyPublic(String teksti2, String teksti3) throws IOException {
         if (teksti3.length() == 0) {
-            BufferedReader in = new BufferedReader(new FileReader("C:\\Users\\Asus\\IdeaProjects\\ProjektiSiguri\\Key\\" + teksti2 + ".pub.xml"));
+            BufferedReader in = new BufferedReader(new FileReader("keys\\" + teksti2 + ".pub.xml"));
             String line;
             while ((line = in.readLine()) != null) {
                 System.out.println(line);
@@ -17,8 +17,8 @@ public class ExportKey {
             OutputStream os = null;
             try {
 
-                is = new FileInputStream("C:\\Users\\Asus\\IdeaProjects\\ProjektiSiguri\\Key\\" + teksti2 + ".pub.xml");
-                os = new FileOutputStream("C:\\Users\\Asus\\IdeaProjects\\ProjektiSiguri\\Key\\" + teksti3 + ".pub.xml");
+                is = new FileInputStream("keys\\" + teksti2 + ".pub.xml");
+                os = new FileOutputStream("keys\\" + teksti3 + ".pub.xml");
                 byte[] buffer = new byte[1024];
                 int length;
                 while ((length = is.read(buffer)) > 0) {
@@ -36,7 +36,7 @@ public class ExportKey {
     static public void ExportKeyPrivate(String teksti2, String teksti3) throws IOException {
 
         if (teksti3 == null) {
-            BufferedReader in = new BufferedReader(new FileReader("C:\\Users\\Asus\\IdeaProjects\\ProjektiSiguri\\Key\\" + teksti2 + ".xml"));
+            BufferedReader in = new BufferedReader(new FileReader("keys\\" + teksti2 + ".xml"));
             String line;
             while ((line = in.readLine()) != null) {
                 System.out.println(line);
@@ -49,8 +49,8 @@ public class ExportKey {
             OutputStream os = null;
             try {
 
-                is = new FileInputStream("C:\\Users\\Asus\\IdeaProjects\\ProjektiSiguri\\Key\\" + teksti2 + ".xml");
-                os = new FileOutputStream("C:\\Users\\Asus\\IdeaProjects\\ProjektiSiguri\\Key\\" + teksti3 + ".xml");
+                is = new FileInputStream("keys\\" + teksti2 + ".xml");
+                os = new FileOutputStream("keys\\" + teksti3 + ".xml");
                 byte[] buffer = new byte[1024];
                 int length;
                 while ((length = is.read(buffer)) > 0) {
