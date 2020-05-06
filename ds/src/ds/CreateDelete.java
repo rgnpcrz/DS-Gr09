@@ -39,36 +39,45 @@ public class CreateDelete
         KeyPair kp = kpg.generateKeyPair();
 
         Writer out = null;
+        Writer out1=null;
         try {
 
 
-            if ( outFile != null ) out = new FileWriter("C:\\Users\\Asus\\IdeaProjects\\ProjektiSiguri\\Key\\"+outFile + ".xml");
+            if ( !Files.exists(Paths.get("C:\\Users\\Asus\\IdeaProjects\\ProjektiSiguri\\Key\\"+outFile + ".pub.xml"))
+                    && !Files.exists(Paths.get("C:\\Users\\Asus\\IdeaProjects\\ProjektiSiguri\\Key\\" + outFile + ".xml"))){
+                out = new FileWriter("C:\\Users\\Asus\\IdeaProjects\\ProjektiSiguri\\Key\\"+outFile + ".xml");
+                out1 = new FileWriter("C:\\Users\\Asus\\IdeaProjects\\ProjektiSiguri\\Key\\"+outFile + ".pub.xml");
+
             out.write("-----BEGIN RSA PRIVATE KEY-----\n");
             writeBase64(out, kp.getPrivate());
 
             out.write("-----END RSA PRIVATE KEY-----\n");
-            out.close();
-            if ( outFile != null ) out = new FileWriter("C:\\Users\\Asus\\IdeaProjects\\ProjektiSiguri\\Key\\"+outFile + ".pub.xml");
 
-            out.write("-----BEGIN RSA PUBLIC KEY-----\n");
-            writeBase64(out, kp.getPublic());
-            out.write("-----END RSA PUBLIC KEY-----\n");
-            out.close();
+                out1.write("-----BEGIN RSA PUBLIC KEY-----\n");
+                writeBase64(out1, kp.getPublic());
+                out1.write("-----END RSA PUBLIC KEY-----\n");
+                out1.close();
+            }
+            else
+                System.out.println("Ky celes ekziston paraprakisht");
+
+
+
         } finally {
             if ( out != null ) out.close();
         }
     }
-        public static void DeleteKey(String emri1){
-            try {
-                Files.delete(Paths.get("C:\\Users\\Asus\\IdeaProjects\\ProjektiSiguri\\Key\\" + emri1 + ".pub.xml"));
-                Files.delete(Paths.get("C:\\Users\\Asus\\IdeaProjects\\ProjektiSiguri\\Key\\" + emri1 + ".xml"));
-            } catch (NoSuchFileException x) {
-                System.err.format("%s: no such" + " file or directory%n", emri1);
-            } catch (DirectoryNotEmptyException x) {
-                System.err.format("%s not empty%n", emri1);
-            } catch (IOException x) {
-                // File permission problems are caught here.
-                System.err.println(x);
-            }
+    public static void DeleteKey(String emri1){
+        try {
+            Files.delete(Paths.get("C:\\Users\\Asus\\IdeaProjects\\ProjektiSiguri\\Key\\" + emri1 + ".pub.xml"));
+            Files.delete(Paths.get("C:\\Users\\Asus\\IdeaProjects\\ProjektiSiguri\\Key\\" + emri1 + ".xml"));
+        } catch (NoSuchFileException x) {
+            System.err.format("Nuk ekziston ndonje celes me emrin %s ", emri1);
+        } catch (DirectoryNotEmptyException x) {
+            System.err.format("Nuk ekziston ndonje celes me emrin %s ", emri1);
+        } catch (IOException x) {
+            // File permission problems are caught here.
+            System.err.println(x);
         }
+    }
 }
