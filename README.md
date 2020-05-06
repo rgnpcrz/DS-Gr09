@@ -19,7 +19,26 @@ Detyrë e projektit është krijimi dhe testimi i këtyre tri komandave.
 
 Ne folderin me foto kemi paraqitur rezultatet per komandat e perfunduara
 
+Ekzekutimi:
+javac ds.java
 
+java ds numerical encode/decode samir/1 1
+
+java ds tap-code encode/decode/ rigon/. .
+
+java ds create-user samir
+
+java ds delte-user samir
+
+java ds export public samir rigon
+
+java ds export private samir rigon
+
+java ds import public samir1 samir
+
+java ds import private samir1 samir
+
+java ds write-message blerim
 
 
 
