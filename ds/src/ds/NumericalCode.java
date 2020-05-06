@@ -1,16 +1,19 @@
 public class NumericalCode  {
 
     public static void NumericalCodeEncryption(String teksti1){
-    String teksti=teksti1.toUpperCase();
-    char seperator='.';
+        String teksti=teksti1.toUpperCase();
+        teksti = teksti.replaceAll("[0-9]","");
+        teksti= teksti.replaceAll("[^a-zA-Z0-9]", "");
+
+        char seperator='.';
         char c = 0;
         int numri=0;
         for(int i=0;i<teksti.length();i++){
             c=teksti.charAt(i);
             if(c == ' ')
-              continue;
+                continue;
             else
-            numri=c;
+                numri=c;
             System.out.print(numri-64+" ");
         }
     }
@@ -25,9 +28,9 @@ public class NumericalCode  {
             if(c==' ')
                 continue;
             else
-            rez=c;
+                rez=c;
             abc=rez+48;
-            System.out.print((char)abc);
+            System.out.print((char)abc+" ");
         }
     }
 
