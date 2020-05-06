@@ -17,9 +17,6 @@ Detyrë e projektit është krijimi dhe testimi i këtyre tri komandave.
 6. ExportKey klasa- eksporton nje celes nga nje perdorues dhe e dergon tek nje tjeter, nese nuk ekziston useri ku duam te eksportojme celesin ai krijohet.
 
 
-
-Komanden Beale Cipher nuk kemi arritur ta perfundojme.
-
 Ne folderin me foto kemi paraqitur rezultatet per komandat e perfunduara
 
 
