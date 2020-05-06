@@ -43,10 +43,10 @@ public class CreateDelete
         try {
 
 
-            if ( !Files.exists(Paths.get("C:\\Users\\Asus\\IdeaProjects\\ProjektiSiguri\\Key\\"+outFile + ".pub.xml"))
-                    && !Files.exists(Paths.get("C:\\Users\\Asus\\IdeaProjects\\ProjektiSiguri\\Key\\" + outFile + ".xml"))){
-                out = new FileWriter("C:\\Users\\Asus\\IdeaProjects\\ProjektiSiguri\\Key\\"+outFile + ".xml");
-                out1 = new FileWriter("C:\\Users\\Asus\\IdeaProjects\\ProjektiSiguri\\Key\\"+outFile + ".pub.xml");
+            if ( !Files.exists(Paths.get("keys\\"+outFile + ".pub.xml"))
+                    && !Files.exists(Paths.get("keys\\" + outFile + ".xml"))){
+                out = new FileWriter("keys\\"+outFile + ".xml");
+                out1 = new FileWriter("keys\\"+outFile + ".pub.xml");
 
             out.write("-----BEGIN RSA PRIVATE KEY-----\n");
             writeBase64(out, kp.getPrivate());
@@ -69,8 +69,8 @@ public class CreateDelete
     }
     public static void DeleteKey(String emri1){
         try {
-            Files.delete(Paths.get("C:\\Users\\Asus\\IdeaProjects\\ProjektiSiguri\\Key\\" + emri1 + ".pub.xml"));
-            Files.delete(Paths.get("C:\\Users\\Asus\\IdeaProjects\\ProjektiSiguri\\Key\\" + emri1 + ".xml"));
+            Files.delete(Paths.get("keys\\" + emri1 + ".pub.xml"));
+            Files.delete(Paths.get("keys\\" + emri1 + ".xml"));
         } catch (NoSuchFileException x) {
             System.err.format("Nuk ekziston ndonje celes me emrin %s ", emri1);
         } catch (DirectoryNotEmptyException x) {
